@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="h-screen w-screen bg-slate-800 text-slate-50 overflow-hidden first-section">
+    <Front />
+    <Horizontal 
+      v-motion
+      :initial="{ opacity: 0, y: 20 }"
+      :enter="{ opacity: 1, y: 0, scale: 1 }"
+      :delay="300"
+    />
+  </div>
+  <div>
+    <Contacts />
+    <FooterComponent />
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import Front from './modules/FrontModule/FrontModule.vue'
+import Horizontal from './modules/FrontModule/HorizontalScrollModule.vue'
+import Contacts from './modules/ContactsModule/ContactsModule.vue'
+import FooterComponent from './modules/ContactsModule/components/FooterComponent.vue'
+// data
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+// methods
+
+
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Playfair Display', serif;
 }
 </style>
